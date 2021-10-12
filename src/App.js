@@ -15,13 +15,14 @@ import Date from "./components/Date";
 import Title from "./components/Title";
 import Info from "./components/Info";
 import Media from "./components/Media";
-import styled from 'styled-components'
+import styled from "styled-components"
+import { BASE_URL, API_KEY} from "./apiIndex"
 
 //Defined a div style for the main page, assigned to SpaceFriend
 const SpaceFriend = styled.div`
-  background-color: blue;
-  &:hover{background-color: gray}
-  color:white;
+   background-color: gray;
+   color:white;
+   text-align: center;
 `;
 
 //Defined a div style for the  spans, assigned to SpaceSpan
@@ -47,24 +48,20 @@ const SpaceSpanExp = styled.span`
 `;
 
 //App function definition
-function App() 
-{
+function App() {
 
   //Declare the state variable, init empty
   const [data, setData] = useState({});
 
   //effect hook function
-  useEffect(() => 
-  {
+  useEffect(() => {
     //Axios gets data from the url
-    axios.get("https://api.nasa.gov/planetary/apod?api_key=qlkWEOda9rWNiLcFqebrTUZcf1a60KVcCAYV2RYH")
+    axios.get(`${BASE_URL}${API_KEY}`)
 
     //then() function
-    .then(res => 
-    {
+    .then(res =>  {
       //Log the results
       console.log(res.data);
-
       //Invoke setData() to set the data
       setData(res.data);
     })
@@ -79,7 +76,7 @@ function App()
   return(
     <SpaceFriend className="App"> 
       <p>
-       NASA APOD <span role="img" aria-label='go!'>🚀</span>!
+       NASA AWESOME PHOTO OF THE DAY <span role="img" aria-label='go!'>🚀</span>!
       </p>
 
       {/**Render the title */}
@@ -99,7 +96,7 @@ function App()
       
       {/**Render the video player */}
       <SpaceSpan className = "Span">
-      <Media url =  {data.url} />
+      <Media url =  {data.url} picurl = {data.media_type} />
       </SpaceSpan>
       
     </SpaceFriend>

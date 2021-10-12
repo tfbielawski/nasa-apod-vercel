@@ -10,11 +10,9 @@
 import React from "react";
 
 //Default function definition, pass in {url}
-export default function Media({url})
-{
+export default function Media({url}){
     //If the pic of the day is a video, do this...
-    if (`${url}`.includes("youtube") == true)
-    {
+    if (`${url}`.includes("youtube") === true) {
         console.log("This is the url " + {url});
         //Return the url of the video
         return  <div className = "video-responsiveness">
@@ -32,8 +30,7 @@ export default function Media({url})
     }
     
     //...otherwise
-    else 
-    {
+    else {
         //...show a static image
         return <div className = "image"> 
         <img src = {`${url}`} alt  = "alternate text"></img></div>

@@ -8,11 +8,15 @@
 
 //Import statements
 import React from "react";
-
+import styled from "styled-components";
+//Styled component
+const DateStyle = styled.div`
+color: white;
+font-size: 0.5rem;
+`
 //Default function definition, pass in {date}
-export default function Date({date})
-{
-    //Return the date in h2 tag
-    return <h2>{date}</h2>;
+export default function Date({date}){
+    //Render the styled containing the date
+    return <DateStyle>  <h2>{date}</h2> </DateStyle>
 }
 

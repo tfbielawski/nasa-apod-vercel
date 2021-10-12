@@ -12,12 +12,11 @@ import styled from 'styled-components';
 
 //Define a style for h1
 const SpaceTitle = styled.h1`
-  color:yellow;
+  color:white;
 `;
 
 //Default function definition, pass in {title}
-export default function Title({title})
-{
+export default function Title({title}){
     //Return the title in h1 tag
     return <SpaceTitle> {title}</SpaceTitle>;
 }

@@ -8,10 +8,20 @@
 
 //import react
 import React from "react";
-
+import styled from 'styled-components'
+//Styled component
+const InfoStyle = styled.div`
+display: flex;
+  text-align: center;
+color: navy;
+  font-weight: bold;
+  width:80vh;
+  display: flex;
+  text-align: center;
+  margin-left: 0%;
+`
 //Default function definition, pass in {explanation}
-export default function Info({explanation})
-{
+export default function Info({explanation}){
     //Return the title in h1 tag
-    return <p>{explanation}</p>;
+    return <InfoStyle> <p>{explanation}</p> </InfoStyle>
 }
